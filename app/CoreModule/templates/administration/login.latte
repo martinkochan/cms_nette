@@ -1,0 +1,25 @@
+{define title}Login{/define}
+{define description}Login to system.{/define}
+{block content}
+<div class="col-sm-8 blog-main">
+    <div class="blog-post">
+        <form class="form" n:name=loginForm>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label" n:name=username>Username: </label>
+                <div class="col-sm-8">
+                    <input class="form-control col-6" type="text" n:name=username>
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label" n:name=password>Password: </label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" type="text" n:name=password>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Log in</button>
+
+        </form>
+    </div>
+    <p>If you don't have an account, <a n:href=":Core:Administration:register">register</a>.</p>
+</div>

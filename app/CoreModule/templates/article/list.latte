@@ -1,0 +1,20 @@
+{define title}List of articles{/define}
+{define description}List of articles.{/define}
+{block content}
+    <div class="col-sm-8 blog-main">
+
+        <div n:foreach="$articles as $art" class="blog-post">
+            <h2 class="blog-post-title"><a n:href=":Core:Article: $art->url">{$art->title}</a></h2>
+            <p class="blog-post-meta">{$art->created_at}</p>
+            {$art->description}
+            <br/>
+            {if $admin}
+                <a n:href=":Core:Article:editor $art->url">Edit</a>
+                <a n:href=":Core:Article:remove $art->url">Delete</a>
+            {/if}
+
+        </div><!-- /.blog-post -->
+    </div><!-- /.blog-main -->
+{/block}
+
+

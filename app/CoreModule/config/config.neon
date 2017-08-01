@@ -1,0 +1,23 @@
+# configuration file for CoreModule
+
+parameters:
+	# presenters
+	administration: Core:Administration
+	article: Core:Article
+	contact: Core:Contact
+
+# service settings accesible through DI in whole application
+services:
+        - App\CoreModule\Model\ArticleManager
+        security.authorizator: #Resource settings and authorization rules in CoreModule.
+                setup:
+                                - addResource(%administration%)
+                                - addResource(%article%)
+                                - addResource(%contact%)
+                                - allow(%guest%, %administration%, 'login')
+                                - allow(%guest%, %administration%, 'register')
+                                - allow(%guest%, %article%, 'default')
+                                - allow(%guest%, %article%, 'list')
+                                - allow(%guest%, %contact%)
+                                - allow(%member%, %administration%, 'default')
+                                - allow(%member%, %administration%, 'logout')

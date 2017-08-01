@@ -1,0 +1,10 @@
+{define title}Web administration{/define}
+{define description}Web administration.{/define}
+{block content}
+<div class="col-sm-8 blog-main">
+    <p>Vítejte v administraci, jste příhlášen/a jako <b>{$username}</b>.</p>
+    <p n:if="!$admin">Nemáte administrátorská oprávnění.</p>
+    <h2><a n:href=":Core:Article:editor">Article editor</a></h2>
+    <h2><a n:href=":Core:Article:list">List of articles</a></h2>
+    <h2><a n:href=":Core:Administration:logout" >Logout</a></h2>
+</div><!-- /.blog-main -->
